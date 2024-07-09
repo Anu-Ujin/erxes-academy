@@ -28,6 +28,11 @@ table {
 button {
     background-color: rgb(88, 88, 245);
     color: white;
+    transition: width 4s ease-in-out;
+}
+
+button:hover {
+    background-color: red;
 }
 
 .section img {
@@ -46,8 +51,9 @@ button {
     100% {width: 690px; height: 350px;}
 }
 
-@media only screen and(min-width: 600px) {
+@media only screen and (max-width: 600px) {
     body {
         background-color: rgb(249, 249, 154);
     }
 }
+

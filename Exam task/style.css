@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(163, 255, 163);
+}
+
+.container {
+    display: block;
+}
+
+table {
+    border: 2px solid black;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form input {
+    margin: 5px 5px;
+    padding: 5px 5px;
+    border: 1px solid rgb(52, 52, 52);
+}
+
+button {
+    background-color: rgb(88, 88, 245);
+    color: white;
+}
+
+.section img {
+    border: 5px solid white;
+    border-radius: 5px;
+    animation-name: animate;
+    animation-duration: 5s;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animate {
+    0% {width: 690px; height: 350px;}
+    50% {width: 345px; height: 175px;}
+    100% {width: 690px; height: 350px;}
+}
+
+@media only screen and(min-width: 600px) {
+    body {
+        background-color: rgb(249, 249, 154);
+    }
+}

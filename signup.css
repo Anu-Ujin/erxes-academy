@@ -1,0 +1,25 @@
+.flex {
+    display: flex;
+}
+
+.form-item {
+    padding: 10px;
+}
+
+.input {
+    border: 1px solid black;
+    padding: 10px;
+    padding-right: 10px;
+    margin-top: 10%;
+    margin: 35% 40% 25% 35%;
+}
+
+.tittle {
+    padding-left: 40%;
+}
+
+.reg {
+    padding-left: 40%;
+    padding-right: 48%;
+    padding-bottom: 3%;
+}

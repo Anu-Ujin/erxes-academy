@@ -1,0 +1,156 @@
+.botomer {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 500px;
+}
+
+.first {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mider {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 270px;
+}
+
+.toper {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 30px;
+}
+
+.norm {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 50px;
+}
+
+.poor {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 100px;
+}
+
+.fant{
+    position: relative;
+    left: -28px;
+}
+
+.histo {
+    position: relative;
+    left: -26px;
+}
+
+.romanc {
+    position: relative;
+    left: -60px;
+}
+
+.lit {
+    position: relative;
+    left: -83px; 
+}
+
+.myst {
+    position: relative;
+    left: -100px;
+}
+
+.hor {
+    position: relative;
+    left: -87px;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+}
+
+.thil {
+    position: relative;
+    left: -50px;
+}
+
+.yesu {
+    position: relative;
+    left: -20px;
+}
+
+.yung {
+    position: relative;
+    left: 15px;
+}
+
+.act {
+    position: relative;
+    left: 30px;
+}
+
+.grap {
+    position: relative;
+    left: -40px;
+}
+
+.woman {
+    position: relative;
+    left: -30px;
+}
+
+.bio {
+    position: relative;
+    left: -30px;
+}
+
+.rsus {
+    position: relative;
+    left: -33px;
+}
+
+.fav {
+    position: relative;
+    left: -95px;
+}
+
+.his {
+    position: relative;
+    left: -80px;
+}
+
+.mem {
+    position: relative;
+    left: -60px;
+}
+
+.goth {
+    position: relative;
+    left: -50px;
+}
+
+.non {
+    position: relative;
+    left: -70px ;
+}
+
+.sar {
+    position: relative;
+    left: -80px;
+}
+
+.lore {
+    position: relative;
+    left: -50px;
+}
+
+.butt {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    bottom: -300px;
+}

@@ -1,0 +1,21 @@
+.display {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.bomb {
+    display: none;
+}
+
+.mid    {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.color {
+    display: flex;
+    justify-content: center;
+        background-color: cyan;
+}

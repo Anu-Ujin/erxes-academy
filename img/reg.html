@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="whole">
+    <head>
+      <meta charset="UTS=8">
+      <link rel="stylesheet" href="reg.css">
+    </head>
+    <body>
+        <section class="box">
+            <header class="head">
+                <h2>Registration</h2>
+            </header>
+                <form>
+                    <div class="name">
+                        <label class="namer">Full Name</label>
+                        <label class="gamer">Username</label>
+                    </div>
+                    <div>
+                        <input type="text" name="fullname" placeholder="Enter your Full name" required class="nme"> 
+                        <input type="text" name="Username" placeholder="Enter your Username" required class="user">     
+                    </div>
+                        <div class="contact">
+                            <label class="mail">Email</label>
+                            <label class="ask">Phone number</label>
+                        </div>
+                        <div>
+                        <input type="email" name="Email" placeholder="youremail.@gmail.com" required class="check"> 
+                        <input type="number" name="phone number" placeholder="Enter your phone number" required class="number" min="10000000" max="99999999" maxlength="8">     
+                        </div>
+                            <div class="pass">
+                            <label class="npass">Password</label>
+                            <label class="cnpass">Confirm Password</label>
+                            </div>
+                            <div>
+                                <input type="password" name="Password" placeholder="Password" required class="bpass"> 
+                                <input type="password" name="Confirm Password" placeholder="Confirm Password" required class="cpass">
+                            </div>
+                    <div class="gender">    
+                        <label class="gender">Gender</label>
+                        <div class="flex">
+                            <div><input type="radio" name="gender" value="male" />Male</div>
+                            <div><input type="radio" name="gender" value="female" />Female</div>
+                            <div><input type="radio" name="gender" value="other" />Prefer not to say</div>
+                        </div>
+                    </div>
+                </form>
+            <footer>
+                <div class="button">
+                    <button type="submit">Register</button>
+                </div>
+            </footer>
+            </form>
+        </section>
+    </body>
+</html>

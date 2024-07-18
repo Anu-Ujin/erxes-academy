@@ -10,8 +10,9 @@
     border: 1px solid black;
     padding: 10px;
     padding-right: 10px;
-    margin-top: 10%;
-    margin: 35% 40% 25% 35%;
+    margin-top: 300px;
+    margin-left: 30%;
+    border-radius: 15px;
 }
 
 .tittle {
@@ -22,4 +23,20 @@
     padding-left: 40%;
     padding-right: 48%;
     padding-bottom: 3%;
+}
+
+#flex {
+    display: flex;
+}
+
+#book {
+    position: relative;
+    object-fit: cover;
+    top: 280px;
+}
+
+#none {
+    position: relative;
+    top: 300px;
+    left: 50px;
 }

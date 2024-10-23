@@ -1,0 +1,179 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ page.subject }} %}
+
+{% block content %}
+<section class="contact active page-material">
+	<div class="slider h-100 w-100">
+		<div class="container-fluid h-100 responsive-h-100">
+			<div class="row h-100 align-items-center">
+				{% category "material_concept" as concept %}
+				<div class="col-lg-4 h-100 killarney-back">
+					<div class="d-flex h-100 align-items-center">
+						<div class="w-60 mx-auto light-text">
+							<h5 class="mb-2 os-f">{{ page.subject }}</h5>
+							<h2 class="mb-lg-5 mb-md-3 text-white text-uppercase">{: Material concept :}</h2>
+							<div class="pt-xl-5 pt-lg-3">
+								<p>{{concept.extra_fields.extra_field_anything|safe}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 bg-white h-100 d-flex align-items-center text-body">
+						<div class="w-100 scroll-container overflow-scroll mt-lg-auto">
+					<div class="container">
+						<div class="pl-xl-5 pl-lg-3 w-80">
+							<h6 class="pt-b"><b>{{concept.caption}}</b></h6>
+							<ul class="rating list-unstyled d-flex align-items-center">
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+								<li>
+									<ion-icon name="star"></ion-icon>
+								</li>
+							</ul>
+							<div class="material-list my-md-5">
+								{% latest_articles 0 concept as posts %}
+								{% for obj in posts %}
+								<div class="material-item star{{obj.webform_fields.star}}">
+									<div class="counter"><span>{{obj.webform_fields.star}}</span>/8</div>
+									<div class="d-flex align-items-center">
+										<div class="material-name">{{obj.subject}}</div>
+										<p class="mb-0 position-relative">{{obj.webform_fields.descr}}</p>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							<div class="logos pt-5">
+								{% page "logos" as logos %}
+								<ul class="list-unstyled">
+									{% for logo in logos.images %}
+									<li><img src="{{logo}}" alt="logos" /></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="container-fluid h-100">
+				<div class="row h-100 align-items-center">
+					{% page "brand_story" as brand_story %}
+					<div class="col-lg-4 h-100 mongoose-back">
+						<div class="d-flex h-100 align-items-center">
+							<div class="w-60 mx-auto light-text">
+								<h5 class="mb-2 os-f">{{ page.subject }}</h5>
+								<h2 class="mb-lg-5 mb-md-3 text-white text-uppercase">{{brand_story}}</h2>
+								<div class="pt-xl-5 pt-lg-3">
+									<p>{{brand_story.el_content|safe}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8 bg-white h-100 d-flex align-items-center text-body h-100">
+						<div class="w-100 scroll-container overflow-scroll mt-lg-auto">
+							<div class="container">
+								{% category "structure" as structure %}
+								<div class="pl-xl-5 pl-lg-3 w-90">
+									<h6 class="pt-b"><b>{{structure.caption}}</b></h6>
+									<div class="row structure-list my-md-5 row-eq-height">
+										{% latest_articles 0 structure as posts %}
+										{% for obj in posts %}
+										<div class="col-xs-12 col-sm-6 col-lg-6 col-xl-4 mb-lg-5 mb-sm-3 mb-xs-2">
+											<div class="structure-item position-relative">
+												<div class="structure-img">
+													<img class="img-fluid" src="{% thumb obj.webform_fields.image w=600 h=400 %}" alt="{{obj.subject}}" />
+													<div class="structure-logo">
+														<a {% if obj.webform_fields.url %}href="{{obj.webform_fields.url}}" target="_blank" {% else %} href=""{% endif %}>
+															<img class="img-fluid" src="{{obj.webform_fields.logo}}" alt="{{obj.subject}}"/>
+														</a>
+													</div>
+												</div>
+												<div class="structure-content">
+													<h6 class="pt-b">{{obj.subject}}</h6>
+													<div class="content position-relative">{{obj.el_content|safe|removetags:"img"}}</div>
+													<ul class="rating list-unstyled d-flex align-items-center pl-0">
+														{% for star in obj.images %}
+														<li>
+															<img class="img-fluid" src="{% thumb star w=32 %}" alt="star" />
+														</li>
+														{% endfor %}
+													</ul>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<span class="line d-sm"></span>
+</section>
+{% endblock %}
+{% block js %}
+<script>
+	$('.navbar').addClass('white-logo dark-menu');
+	$("body").removeClass('disabled-onepage-scroll');
+	$("header").removeClass('disabled-fixed');
+	$('.onepage-pagination').hide();
+	$('.scroll-container').height($('body').height() - $('header').height());
+	
+	var $slider = $('.slider');
+
+	if ($slider.length) {
+		var currentSlide;
+		var slidesCount;
+		var sliderCounter = document.createElement('div');
+		sliderCounter.classList.add('slider__counter');
+
+
+		var updateSliderCounter = function (slick, currentIndex) {
+			currentSlide = slick.slickCurrentSlide() + 1;
+			slidesCount = slick.slideCount;
+			$(sliderCounter).text(currentSlide).append('<div class="d-flex align-items-center"><span/>' + slidesCount +
+				'</div>');
+		};
+
+		$slider.on('init', function (event, slick) {
+			$slider.append(sliderCounter);
+			updateSliderCounter(slick);
+		});
+
+		$slider.on('afterChange', function (event, slick, currentSlide) {
+			updateSliderCounter(slick, currentSlide);
+		});
+
+		$slider.slick({
+			infinite: true,
+			speed: 300,
+			slidesToShow: 1,
+			adaptiveHeight: true
+			});
+	}
+
+</script>
+{% endblock %}

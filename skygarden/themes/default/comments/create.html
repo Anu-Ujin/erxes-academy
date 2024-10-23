@@ -1,0 +1,147 @@
+{% extends BASE_TEMPLATE %}
+<div id="comment_form">	
+	{% block comment_form %}
+	<div class='write'>
+		{% form id="id_comment_form" class="noajax comment-form" action='/plugins/comments/create'%}
+
+		<input type="text" name="name" id="commentAuthor" class="form-control mb-1" placeholder="Таны нэр">
+		<input type="hidden" name="article_id" value="{{ article_id }}">
+		<!-- <input type="hidden" name="user_id" value="{{ request.user.id }}"> -->
+		<input class='parent' type="hidden" name="parent" id="id_parent" />
+		<input type="hidden" name="kind" value="{{ kind }}" />
+
+		<textarea rows="3" class="form-control comment_input" maxlength="3500" id="commentText" name="content"
+			placeholder="Сэтгэгдэл *"></textarea>
+		<div align="right" class="mb-2"><small id="CommentTextLength"></small></div>
+		<span id="id_error_list"></span>
+        <div class="clearfix"></div>
+		<input class='send_comment btn' id="commentSent" type="submit" value="Илгээх">
+		<div style="clear:both;"></div>
+		{% endform %}
+	</div>
+	
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script>
+		$.urlParam = function (name) {
+			var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+			if (results) {
+				return results[1] || 0;
+			}
+			return 0;
+		};
+		function loadList() {
+			var page = $.urlParam('page');
+			// var page_param = '';
+			// 
+			var $form = $('#id_comment_form');
+			page_param = '?kind={{ kind }}';
+			if (page) {
+				page_param += '&page=' + page;
+			}
+			ajaxcontent.load('/plugins/comments/list/{{ article_id }}/' + page_param, false);
+		}
+		var replyFormWrapper = $('#comment_form');
+		var replyForm = replyFormWrapper.find('form');
+
+		$.fn.submitComment = function () {
+			var $form = $(this);
+			$form.submit(function (evt) {
+				evt.preventDefault();
+				$.ajax({
+					url: '/plugins/comments/create/',
+					type: 'post',
+					dataType: 'json',
+					data: $form.serialize(),
+					beforeSend: function () {
+						// $('#ajaxloader, #ajaxloader-container').show();
+					},
+					success: function (response) {
+						console.log(response);
+						if (response.errors) {
+							fields = {
+								'captcha': 'Зурган текст ',
+								'content': 'Сэтгэгдэл '
+							}
+							var li = '';
+							$.each(response.errors, function (field_name, value) {
+								li += fields[field_name] + value;
+							})
+							$('#id_error_list').html(li)
+						} else {
+							loadList()
+							$form[0].reset();
+						}
+						grecaptcha.reset();
+						// $('#ajaxloader, #ajaxloader-container').hide();
+					}
+				});
+			});
+		}
+		$(function () {
+			$(document).ready(function () {
+				$('#comment_list').on('click', '.like', function (event) {
+					event.preventDefault();
+					var _ = $(this);
+					var com = _.data('com');
+					var $likeCount = _.find('.like-count');
+					var $dislikeCount = _.find('.dislike-count');
+					$.ajax({
+						url: '/plugins/comments/like/' + com + '/',
+						type: 'POST',
+						data: { csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value },
+						dataType: 'JSON',
+						success: function (data) {
+							if (data.msg == 'plus') {
+								$likeCount.text(parseInt(data.like));
+							}
+							// else if (data.msg == 'minus') {
+							// 	$likeCount.text(parseInt($likeCount.text()) - 1);
+							// }
+						}
+					});
+				});
+
+				$('#comment_list').on('click', '.dislike', function (event) {
+					event.preventDefault();
+					var _ = $(this);
+					var comm = _.data('com');
+					var $likeCount = _.find('.like-count');
+					var $dislikeCount = _.find('.dislike-count');
+					$.ajax({
+						url: '/plugins/comments/dislike/' + comm + '/',
+						type: 'post',
+						data: { csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value },
+						dataType: 'json',
+						success: function (data) {
+							if (data.msg == 'plus') {
+								$dislikeCount.text(parseInt(data.dislike));
+							}
+						}
+					});
+				});
+			});
+			loadList();
+			var $form = $('#id_comment_form');
+			$form.submitComment();
+			$('#comment_list').on('click', '.reply', function () {
+				var clone = replyFormWrapper.clone(),
+					commentId = $(this).data('id');
+				userId = $(this).data('user');
+				clone.submit(function () {
+					$form.find('[name=parent]').val(commentId);
+					$form.find('[name=user_id]').val(userId);
+					$form.find('[name=name]').val($(this).find('[name=name]').val());
+					$form.find('[name=content]').val($(this).find('[name=content]').val());
+					$form.submit();
+					return false;
+				});
+				$(this).after(clone);
+				$(this).addClass('disabled');
+
+			})
+		})
+
+	</script>
+
+	{% endblock %}
+</div>

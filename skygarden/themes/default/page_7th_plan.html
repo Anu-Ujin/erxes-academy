@@ -1,0 +1,84 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ page.subject }} %}
+
+{% block content %}
+<section class="grey-back active page-22">
+	<div class="container-fluid h-100">
+		<div class="row h-100 align-items-center justify-content-center">
+			<div class="col-xl-10 col-lg-10 col-sm-11">
+				<div class="image-wrapper position-relative">
+					<img class="img-fluid" src="{% thumb page.thumb_url_or_default w=1800 %}" alt="{{page.subject}}" />
+					<div class="svg-wrapper">
+						<svg width="1798" height="759" viewBox="0 0 1798 759" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path data-index="0" id="poly3" tabindex="0" data-trigger="focus" data-toggle="popover"
+								data-name="poly3"
+								d="M389.142 91.7346L390.337 109.34L398.635 122.226L410.871 134.942L396.193 146.171L394.381 157.385L393.881 166.973L393.183 176.509L389.143 184.615L391.129 202.227L394.273 211.893L394.707 224.652L394.406 243.878L390.744 264.685L400.352 255.077L414.765 251.874L464.414 245.471L568.501 245.468L903.197 247.07L956.044 226.251L1348.39 237.461L1375.61 239.063L1391.63 242.265L1402.84 245.468L1414.05 247.07L1422.06 251.874V223.048V197.426L1426.86 191.02V181.412V171.803L1420.45 165.398V142.978L1415.65 133.369L1404.44 126.964L1399.64 123.763L1412.45 114.152L1423.66 104.546L1426.86 93.3339V80.5226L1423.66 69.3127L1415.65 61.3056L1404.44 56.5014L1391.63 50.0957L1361.2 45.2915L1319.57 42.0886L1223.48 35.683L1141.81 30.882L1045.72 26.0745L956.044 19.6688L933.624 34.0816L787.895 32.4801L654.978 30.8787H552.487L475.619 32.4801L474.018 53.2985L445.192 58.1028L422.772 62.907L401.954 70.9141L393.947 78.9212L389.142 91.7346Z" />
+
+							<path data-index="1" id="poly2" tabindex="0" data-trigger="focus" data-toggle="popover"
+								data-name="poly2"
+								d="M390.743 277.5L393.946 283.906V325.544L392.345 331.949V339.957L389.142 346.362L401.953 339.957L427.576 335.152L566.899 333.551L767.076 333.553L901.594 333.551L928.818 327.145L957.644 320.739L1210.67 325.544L1346.79 327.145L1404.44 333.551L1420.45 335.152L1422.05 266.29L1407.64 258.281L1383.32 252.338L1349.99 250.274L1213.87 245.475L1080.26 243.245L1045.72 242.266L957.644 239.066L906.399 258.281L664.585 258.283H493.234L445.191 259.884L419.569 261.486L398.75 267.892L390.743 269.493V365.577L393.946 371.982V413.62L392.345 420.026V428.033L389.142 434.439L401.953 428.033L427.576 423.229L566.899 421.627L767.076 421.629L901.594 421.627L928.818 418.421L957.644 415.223L1210.67 418.423L1348.39 418.421L1404.44 421.627L1420.45 423.229L1422.05 354.367L1407.64 346.357L1383.32 340.415L1353.19 338.35L1249.1 338.354L1126.7 334.521L1045.72 335.146L959.246 331.945L904.797 344.753L664.585 344.756H494.836L448.395 346.357L417.967 349.562L398.75 352.768L390.743 357.569L393.949 455.257L393.947 466.467V480.881L392.346 492.09V496.898L393.949 506.504L406.76 508.109L424.373 509.704L563.696 509.706L759.066 509.708L901.595 509.706L927.217 509.699L954.44 511.312L1207.46 512.909L1337.18 511.303L1399.63 509.706L1422.05 504.9L1423.66 448.85L1418.85 431.234L1381.72 431.698L1349.99 431.23L1245.89 429.638L1123.49 429.004L1042.52 429.629L956.042 426.428L901.593 432.83L795.906 432.831L661.382 432.832L517.247 431.229L466.018 432.83L433.988 432.843L413.17 434.438L395.551 436.039L390.743 277.5Z" />
+							<path data-index="2" id="poly1" tabindex="0" data-trigger="focus" data-toggle="popover"
+								data-name="pony1"
+								d="M961.082 624.932V697L989.908 695.398L1020.34 693.797L1055.57 692.196L1142.04 687.391L1263.75 682.587L1350.23 679.384L1406.28 672.978L1423.9 664.971L1425.5 653.76L1422.3 639.347V606.928V520.928H1366.72L1219.72 521.928L961.082 524.428L906.724 519.428L817.724 519.928L710.224 520.428H484.224L421.724 518.928H393.224V652.928L397.224 667.928L411.224 672.928L462.724 679.428L503.724 680.928L570.224 682.428L622.724 685.428L721.224 692.428L764.224 694.928V633.428L696.724 608.428L494.724 606.928L424.224 605.428L393.724 601.928V586.928L404.224 591.428L416.224 593.928L484.224 597.928L698.724 596.928L904.724 597.928L959.724 608.928L994.724 607.428L1025.72 605.928L1145.72 603.428L1384.22 600.928L1396.22 598.428L1399.5 598L1414 596L1421.72 593.131V605.428L1391.87 610.519L1265.36 613.724L1126.03 616.927H1045.96L1025.14 618.528L991.509 621.731L961.082 624.932Z" />
+						</svg>
+
+
+					</div>
+				</div>
+				<div class="floors hide">
+					{{page.el_content|safe|removetags:"img"}}
+				</div>
+				<div class="mobile-plan">
+					<table class="table table-striped table-responsive-sm w-100">
+						<thead></thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<span class="line"></span>
+</section>
+{% endblock %}
+{% block js %}
+<script>
+	$('.navbar').addClass('dark-menu').removeClass('white-logo');
+	$("body").addClass('disabled-onepage-scroll');
+
+	var floors = [];
+	$('.floors table tr').each(function () {
+		var floor = $(this).find('td:first-child').html(),
+			title = $(this).find('td:nth-child(2)').html(),
+			text = $(this).find('td:nth-child(3)').html(),
+			url = $(this).find('td:nth-child(4)').html();
+
+		floors.push({
+			floor,
+			title,
+			text,
+			url
+		});
+
+		$('.mobile-plan table tbody').append('<tr><td><h6 class="mb-0">' + title + '</h6><p>' + text +
+			'</p></td><td><a href="' + url +
+			'">Харах <ion-icon class="ml-1" name="arrow-forward-outline"></ion-icon></a></td></tr>');
+	});
+
+	$('[data-toggle="popover"]').popover({
+		container: '.image-wrapper',
+		animation: true,
+		html: true,
+		trigger: 'focus',
+		placement: 'left',
+		template: '<div class="my-popover" role="tooltip"><div class="popover-body"></div></div>',
+		content: function () {
+			var index = floors.findIndex(floor => floor.floor === $(this).attr('id'));
+			return ('<div><h5>' + floors[index].title +
+				'</h5><a class="btn green-btn pl-0 mb-0 pt-lg-2 border-0" href="' + floors[index].url +
+				'">Дэлгэрэнгүй </a></div>')
+		}
+	});
+
+</script>
+{% endblock %}

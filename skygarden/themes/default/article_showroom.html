@@ -1,0 +1,100 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ object.subject }} %}
+
+{% block content %}
+<section class="article pb-0">
+	<div class="h-100 w-100 position-relative responsive-h-sm-100">
+		<div class="c-col col4 left0">
+			<div class="col-xl-9 col-lg-11 mx-auto h-100 d-flex align-items-center">
+				<div class="w-80 mx-auto">
+					<h1 class="mb-xl-5 mb-lg-4">{{object.subject}}</h1>
+					<div class="mb-lg-3 remove-img">
+						<p>{{object.el_content|safe|removetags:"img"}}</p>
+						{% if object.get_c_fields.video %}
+						<a class="fancybox-media d-flex align-items-center px-2"
+							href="https://www.youtube.com/watch?v={{object.get_c_fields.video.value}}">
+							<ion-icon name="caret-forward-circle-outline"></ion-icon> &nbsp;
+							<h5 class="mb-0">{: Play video :}</h5>
+						</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c-col col8 right0">
+			<div class="hide">
+				{{object.el_content|safe|removetags:"p"}}
+					{% if object.get_c_fields.video %}
+						<a class="fancybox-media d-flex align-items-center px-2"
+							href="https://www.youtube.com/watch?v={{object.get_c_fields.video.value}}">
+							<ion-icon name="caret-forward-circle-outline"></ion-icon> &nbsp;
+							<h5 class="mb-0">{: Play video :}</h5>
+						</a>
+						{% endif %}
+			</div>
+			<div class="article-gallery h-100"></div>
+		</div>
+	</div>
+<div class="line"></div>
+</section>
+{% endblock %}
+{% block js %}
+
+<script>
+	$(document).ready(function () {
+		$('.navbar').addClass('dark-menu').removeClass('white-logo');
+		$('header').removeClass('disabled-fixed');
+		$('.onepage-pagination').hide();
+
+		$('.fancy-thumbs').fancybox({
+			prevEffect: 'none',
+			nextEffect: 'none',
+
+			closeBtn: true,
+			arrows: true,
+			nextClick: false,
+
+			openEffect: 'fade-in',
+			closeEffect: 'fade-out',
+
+			helpers: {
+				title: {
+					type: 'outside'
+				},
+				overlay: {
+					css: {
+						'background': 'rgba(169,143,113,0.85)'
+					}
+				},
+				thumbs: {
+					width: 50,
+					height: 50
+				}
+			}
+		});
+		$('.fancybox-media')
+			.attr('rel', 'media-gallery')
+			.fancybox({
+				openEffect: 'elastic',
+				closeEffect: 'elastic',
+				helpers: {
+					media: {},
+					buttons: {}
+				}
+			});
+		$('.hide').find('img').each(function(){
+			var path = $(this).attr('src'),
+			title='';
+			if($(this).attr('alt')){
+				title = $(this).attr('alt');
+			}
+			$('.article-gallery').append('<a class="fancy-thumbs h-100" data-fancybox-group="thumb{{object.id}}" href="' + path +
+			'" title="'+title+'"><img class="cover-img" src="' + path + '" alt="" /></a>')
+		});
+
+		$('.remove-img').find('figure').remove();
+
+		slider('article-gallery', 3000);
+	});
+</script>
+{% endblock %}

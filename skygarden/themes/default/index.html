@@ -1,0 +1,318 @@
+{% extends BASE_TEMPLATE %}
+{% title {: home_page :} | {: title :} %}
+
+{% block content %}
+
+<div class="main">
+	{% inc "includes/mobileLogo.html" %}
+
+	<section class="home-page page1">
+		{% page "home-banner" as banner %}
+		<div class="home-banner" style="background-image:url('{% thumb banner.thumb_url_or_default w=1920 %}')">
+			<div class="container-fluid h-100">
+				<div class="row align-items-end h-100">
+					<div class="intro">
+						<a class="fancybox-media d-flex align-items-center px-2"
+							href="https://www.youtube.com/watch?v=MWfNkPdWFJU">
+							<ion-icon name="caret-forward-circle-outline"></ion-icon>
+							<h5 class="mb-0">{: Play intro :}</h5>
+						</a>
+					</div>
+
+					<div class="px-md-5 col-lg-4 col-md-6">
+						<div class="banner-text">
+							<h1>{{banner.subject}}</h1>
+							<div>
+								{{banner.el_content|safe|removetags:"img"}}
+								<a class="btn green-btn px-lg-4" href="#2" title="{{banner.subject}}">
+									{: Discover more :}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<span class="line"></span>
+	</section>
+
+	<section class="page2 outside dark">
+		<div class="container-fluid h-100">
+			{% page "concept" as concept %}
+			<div class="h-100 align-items-center d-flex mt-xl-5">
+				<div class="map-left w-50 mt-lg-5 mt-md-5">
+					<div class="w-60 mx-auto">
+						<h6 class="mongoose os-f">{: Kids first Concept :}</h6>
+						<h1 class="w-50 mb-lg-4">{{concept.subject}}</h1>
+						<div class="mb-lg-4 with-table">{{concept.el_content|safe}}</div>
+						<div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 table-data mt-lg-4">
+						</div>
+					</div>
+				</div>
+				<div class="w-50 h-100 grey-back d-flex align-items-center outside-map">
+					<div class="btn btn-outline-dark toggle-btn border-0 rounded-circle input-block-level">
+						<ion-icon name="caret-back-outline"></ion-icon>
+					</div>
+					<div class="w-80 map-wrapper">
+						<div class="position-relative">
+							<!-- <img src="{{SITE_STATIC_URL}}images/skygarden-outside.png" alt="Outside"/> -->
+							<div class="index-svg-wrapper">
+								{% inc "includes/map.html" %}
+							</div>
+						</div>
+					</div>
+					<div class="hide rooms">
+						{% page "outer_svg" as outer_svg %}
+						{{outer_svg.el_content|safe}}
+					</div>
+				</div>
+			</div>
+			<span class="line"></span>
+		</div>
+	</section>
+
+	<section class="page3 dark green-white-back white-logo">
+		<div class="container-fluid h-100">
+			<div class="row h-100 position-relative">
+				<div class="slider h-100 w-100">
+					{% latest_articles 0 "advantages" as posts %}
+					{% for obj in posts %}
+					{% with obj.webform_fields as fields %}
+					<div class="h-100 w-100 position-relative d-md-flex align-items-center">
+						<div class="c-col col8 light-text left0">
+							<div class="col-xl-9 col-lg-10 col-md-11 col-sm-10 mx-auto h-100 d-flex align-items-center">
+								<div class="w-60 ml-xl-5">
+									{% if fields.icon %}
+									<img class="img-fluid advantage-icon" src="{{fields.icon}}"
+										alt="{{object.subject}} icon" />
+									{% endif %}
+									{% if fields.category %}<h5 class="mb-2 os-f">{{fields.category}}</h5>
+									{% endif %}
+									<h1 class="mb-xl-5 mb-lg-3 text-white">{{obj.subject}}</h1>
+									<div class="mb-xl-5 mb-lg-3">
+										<p>{{fields.descr}}</p>
+									</div>
+									<div class="d-flex mt-xl-4 mt-lg-3 hovered-btn">
+										<a href="{{obj.url}}"
+											class="btn green-btn py-xl-2 pl-lg-4 py-lg-1 bg-white border-0 d-flex mt-xl-4 align-items-center">{:Read more :} <ion-icon name="arrow-forward-outline"></ion-icon></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="c-col col4 right0">
+							<div class="h-100 d-flex align-items-center">
+								<img class="slider-img" src="{% thumb obj.thumb_url_or_default w=860 h=460 %}"
+									alt="{{obj.subject}}" />
+							</div>
+						</div>
+					</div>
+					{% endwith %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>
+	</section>
+	{% category "room_layout" as layout %}
+	<section class="page4 room_layout"
+		style="background-image:url('{% thumb layout.extra_fields.extra_field_picture w=1800 %}')">
+		<div class="container-fluid h-100">
+			<div class="row justify-content-center h-100 align-items-center">
+				{% latest_articles 0 "room_layout" as rooms %}
+				<div class="col-sm-10 col-md-6 col-lg-6 col-xl-4 text-white">
+					<h1 class="w-60">{{layout.caption}}</h1>
+					<div class="room-plans w-80">
+						<h5 class="os-f mb-0">{: See Our Room Plans :}</h5>
+						<div class="position-relative">
+							<select class="custom-select rounded-pill border-0">
+								{% for obj in rooms %}
+								{% if obj.webform_fields.square %}
+								<option data-name="room{{forloop.counter}}" value="{{obj.subject}}">
+									{{obj.webform_fields.square}}</option>
+									{% endif %}
+								{% endfor %}
+
+							</select> 
+							<div class="click-hand"></div>
+						</div>
+					</div>
+					<div class="w-80 mt-xl-5">
+						{% for obj in rooms %}
+						{% if obj.webform_fields.square %}
+						<div class="room{{forloop.counter}} room-descr {% if forloop.first %}active{% endif %}">
+							<p>{{obj.webform_fields.descr}}</p>
+							<div class="d-flex mt-xl-5 hovered-btn">
+								<a href="{{obj.url}}"
+									class="btn green-btn pl-lg-4 py-xl-2 py-lg-1 btn-outline-light d-flex mt-md-5 align-items-center">{: More :} <ion-icon name="arrow-forward-outline"></ion-icon></a>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="col-sm-10 col-md-5 col-lg-5 col-xl-5">
+					{% for obj in rooms %}
+					{% if obj.webform_fields.square %}
+					<div class="room{{forloop.counter}} room-img {% if forloop.first %}active{% endif %}">
+						{% if obj.webform_fields.image %}
+						<img class="img-fluid" src="{% thumb obj.webform_fields.image w=600 %}"
+						alt="{{obj.subject}}" />
+						{% else %}
+						<img class="img-fluid" src="{% thumb obj.thumb_url w=800 %}" alt="{{obj.subject}}" />
+						{% endif %}
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>
+	</section>
+
+	<section class="page5 showroom dark">
+		{% page "showroom" as showroom %}
+		<div class="h-100 w-100 position-relative">
+			<div class="c-col col4 left0">
+				<div class="col-xl-9 col-lg-11 mx-auto h-100 d-flex align-items-center">
+					<div class="w-80 mx-auto">
+						<h1 class="mb-xl-5 mb-lg-4">{{showroom.subject}}</h1>
+						<div class="mb-lg-3 remove-img position-relative">
+							<p>{{showroom.el_content|safe|removetags:"img"}}</p>
+							<a class="virtual-link os-f" href="https://app.cloudpano.com/tours/Ax7Tb5Ibf2?fbclid=IwAR3VXfGVKJfpIAkSRY1aFcrbxZIsPlVseyRT_P__h8vUdFP0To2J7Tuf2Kk" target="_blank">
+								<img src="{{ SITE_STATIC_URL }}images/360.gif" alt="virtual tour" /> 
+								{: Virtual tour :}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="c-col col8 right0">
+				<div class="hide">
+					{{showroom.el_content|safe}}
+				</div>
+				<div class="article-gallery h-100"></div>
+			</div>
+		</div>
+
+	</section>
+
+	<section class="page6 dark contact white-logo">
+		<div class="container-fluid h-100">
+			{% inc "includes/contact.html" %}
+		</div>
+		<span class="line"></span>
+	</section>
+</div>
+
+{% endblock %}
+{% block js %}
+<script>
+	$(document).ready(function () {
+		getTableData();
+		checkPosition();
+
+		$("header").removeClass('disabled-fixed');
+		$(".navbar").removeClass('dark-menu white-logo');
+
+		$(".main").onepage_scroll({
+			sectionContainer: "section",
+			animationTime: 700,
+			responsiveFallback: 991,
+			pagination: true,
+			updateURL: false,
+			loop: false,
+			direction: "vertical"   
+		});
+
+		$('.fancybox-media')
+			.attr('rel', 'media-gallery')
+			.fancybox({
+				openEffect: 'elastic',
+				closeEffect: 'elastic',
+				helpers: {
+					media: {},
+					buttons: {}
+				}
+			});
+
+		$('.toggle-btn').click(function () {
+			$('.outside-map').toggleClass('open-map');
+			$('.map-left').toggleClass('close-left');
+			$(this).toggleClass('open');
+		});
+
+		var rooms = [];
+		$('.rooms table tr').each(function () {
+			var room = $(this).find('td:first-child').html(),
+				title = $(this).find('td:nth-child(2)').html(),
+				text = $(this).find('td:nth-child(3)').html(),
+				url = $(this).find('td:nth-child(4)').html();
+
+			rooms.push({
+				room,
+				title,
+				text,
+				url
+			});
+		});
+
+		$('[data-toggle="popover"]').popover({
+			container: '.map-wrapper',
+			animation: true,
+			html: true,
+			trigger: 'focus',
+			placement: 'bottom',
+			template: '<div class="my-popover" role="tooltip"><div class="popover-body"></div></div>',
+			content: function () {
+				var index = rooms.findIndex(room => room.room === $(this).attr('id'));
+				return ('<div><h5 class="mb-0">' + rooms[index].title + '</h5><p>' + rooms[index].text +
+					'</p><a class="btn green-btn pl-0 py-lg-2 py-md-0 border-0 d-flex mt-lg-3 mt-md-1 mt-sm-0 align-items-center" href="' +
+					rooms[index].url + '">Дэлгэрэнгүй </a></div>')
+			}
+		});
+
+		$('.custom-select').on('change', function () {
+			$('.room-descr,.room-img').removeClass('active');
+			$('.' + $(this).find(':selected').attr('data-name')).addClass('active');
+		});
+
+		$('.remove-img').find('figure').remove();
+
+		$('.fancy-thumbs').fancybox({
+			prevEffect: 'none',
+			nextEffect: 'none',
+
+			closeBtn: true,
+			arrows: true,
+			nextClick: false,
+
+			openEffect: 'fade-in',
+			closeEffect: 'fade-out',
+
+			helpers: {
+				title: {
+					type: 'outside'
+				},
+				overlay: {
+					css: {
+						'background': 'rgba(169,143,113,0.85)'
+					}
+				},
+				thumbs: {
+					width: 50,
+					height: 50
+				}
+			}
+		});
+
+		$('.showroom .hide').find('img').each(function(){
+			var path = $(this).attr('src'),
+			title = $(this).attr('alt');
+			$('.article-gallery').append('<a class="fancy-thumbs h-100" data-fancybox-group="showroom" href="' + path +
+			'" title="'+title+'"><img class="cover-img" src="' + path + '" alt="" /></a>')
+		});
+
+		slider('slider',8000);
+		slider('article-gallery',5000);
+		contactForm();
+	});
+</script>
+{% endblock %}

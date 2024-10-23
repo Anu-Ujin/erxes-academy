@@ -1,0 +1,76 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ page.subject }} %}
+
+{% block content %}
+<section class="article pb-0">
+	<div class="h-100 w-100 position-relative responsive-h-sm-100">
+		<div class="c-col col4 left0">
+			<div class="col-xl-9 col-lg-11 mx-auto h-100 d-flex align-items-center">
+				<div class="w-80 mx-auto">
+					<h1 class="mb-xl-5 mb-lg-4">{{object.subject}}</h1>
+					<div class="mb-lg-3 remove-img position-relative">
+						<p>{{object.el_content|safe|removetags:"img"}}</p>
+						{% if page.code == "showroom" %}
+						<a class="virtual-link os-f" href="https://app.cloudpano.com/tours/Ax7Tb5Ibf2?fbclid=IwAR3VXfGVKJfpIAkSRY1aFcrbxZIsPlVseyRT_P__h8vUdFP0To2J7Tuf2Kk" target="_blank">
+						<img src="{{ SITE_STATIC_URL }}images/360.gif" alt="virtual tour" /> 
+						{: Virtual tour :}</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c-col col8 right0">
+			<div class="hide">
+					{{object.el_content|safe|removetags:"p"}}
+			</div>
+			<div class="article-gallery h-100"></div>
+		</div>
+	</div>
+<div class="line"></div>
+</section>
+{% endblock %}
+{% block js %}
+<script>
+	$(document).ready(function () {
+		$('.navbar').addClass('dark-menu');
+		$('header').removeClass('disabled-fixed');
+		$('.fancy-thumbs').fancybox({
+			prevEffect: 'none',
+			nextEffect: 'none',
+
+			closeBtn: true,
+			arrows: true,
+			nextClick: false,
+
+			openEffect: 'fade-in',
+			closeEffect: 'fade-out',
+
+			helpers: {
+				title: {
+					type: 'outside'
+				},
+				overlay: {
+					css: {
+						'background': 'rgba(169,143,113,0.85)'
+					}
+				},
+				thumbs: {
+					width: 50,
+					height: 50
+				}
+			}
+		});
+		
+		$('.hide').find('img').each(function(){
+			var path = $(this).attr('src'),
+			title = $(this).attr('alt');
+			$('.article-gallery').append('<a class="fancy-thumbs h-100" data-fancybox-group="thumb{{object.id}}" href="' + path +
+			'" title="'+title+'"><img class="cover-img" src="' + path + '" alt="" /></a>')
+		});
+
+		$('.remove-img').find('figure').remove();
+
+		slider('article-gallery',5000);
+	});
+</script>
+{% endblock %}

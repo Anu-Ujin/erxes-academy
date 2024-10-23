@@ -1,0 +1,14 @@
+{% extends BASE_TEMPLATE %}
+{% title User profile %}
+
+{% block content %}
+    <h2>{{ profile.username }}</h2>
+    {% if user.id == profile.id %}
+        {% if profile.extra_fields.mail_confirmed %}
+            <p>mail confirmed</p>
+        {% else %}
+            <p><a href="{% url 'users-send-mail-confirm-link' %}">Click here to confirm email</a></p>
+        {% endif %}
+        <a href="{% url 'users-profile-edit' %}">{: Edit :}</a>
+    {% endif %}
+{% endblock %}

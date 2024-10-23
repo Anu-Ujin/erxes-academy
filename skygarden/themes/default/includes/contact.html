@@ -1,0 +1,47 @@
+{% page "contact" as contact %}
+
+<div class="row h-100 align-items-center">
+    <div class="col-lg-8 align-items-center">
+        <div class="container">
+            <div class="pl-xl-5 pl-md-3 w-60">
+                <h1>{: Meeting form :}</h1>
+                <h6 class="mb-xl-5 mb-lg-4">Маркетинг борлуулалтын алба</h6>
+                <div class="form-wrapper">
+                    {% render_form "meeting_form" %}
+                </div>
+                <div class="contact-info w-100">
+                    <ul class="list-unstyled w-50">
+                        <li class="text-uppercase">{: Email :}</li>
+                        <li>{{contact.get_c_fields.email.value}}</li>
+                        <li class="text-uppercase">Борлуулалтын оффис</li>
+                        <li>{{contact.get_c_fields.sale_number.value}}</li>
+                    </ul>
+                    <ul class="list-unstyled w-50">
+                        <li class="text-uppercase">{: Address :}</li>
+                        <li>{{contact.get_c_fields.address.value}}</li>
+                        <!-- <li>+976 8888 0836</li>
+                        <li>+976 8888 0837</li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 bg-white h-100">
+        <div class="location">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47483.61223194321!2d106.9477503129981!3d47.90417999988734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969129939160a1%3A0xf6f536fb5ac4934a!2sSky%20Garden%20Residence!5e0!3m2!1sen!2smn!4v1601617680187!5m2!1sen!2smn"
+                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-sm-12">
+        <footer class="w-100">
+            <div class="container">
+                {% inc "includes/footer.html" %}
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ page.subject }} %}
+
+{% block content %}
+<section class="page-contact contact active">
+	<div class="container-fluid h-100">
+			{% inc "includes/contact.html" %}
+	</div>
+	<span class="line d-sm"></span>
+</section>
+{% endblock %}
+{% block js %}
+<script>	
+
+	$('.navbar').addClass('dark-menu white-logo');
+	$("body").removeClass('disabled-onepage-scroll');
+	$("header").removeClass('disabled-fixed');
+	contactForm();
+</script>
+{% endblock %}

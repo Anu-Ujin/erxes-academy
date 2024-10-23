@@ -1,0 +1,80 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ object.subject }} %}
+
+{% block content %}
+<section>
+<div class="container-fluid h-100 green-back article-plan responsive-h-100">
+	<div class="row h-100 align-items-center h-100">
+		<div class="col-md-4 col-sm-4 h-100 pt-lg-5">
+			<div class="d-flex h-100 align-items-center">
+				<div class="w-60 mx-auto light-text">
+					<h5 class="mb-2 os-f">{{ object.last_category }}</h5>
+					<h2 class="mb-lg-5 mb-sm-3 text-white text-uppercase">Давхрын план</h2>
+					<ul class="list-unstyled">
+						<li>{: Floor information :}</li>
+						<li class="mb-3">{{object.webform_fields.info}}</li>
+						<li>{: Types of apartment :}</li>
+						<li>{{object.webform_fields.type}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-8 bg-white h-100 d-flex align-items-center text-body h-100  pt-lg-5">
+			<div class="container">
+				<div aria-label="breadcrumb">
+					<ol class="breadcrumb-abs">
+						<li class="breadcrumb-item"><a href="/">{: Home :}</a></li>
+						{% if object.webform_fields.parent and object.webform_fields.parent_url %}
+						<li class="breadcrumb-item"><a href="/{{object.webform_fields.parent_url}}">{{object.webform_fields.parent}}</a></li>
+						{% endif %}
+						<li class="breadcrumb-item active" aria-current="page">{{object.subject}}</li>
+					</ol>
+				</div>
+				<div class="pl-xl-5 pl-lg-3 w-80">
+					<div class="image-wrapper position-relative">
+						<img class="img-fluid" src="{% thumb object.thumb_url_or_default w=1000 %}"
+							alt="{{object.subject}}" />
+						<div class="svg-wrapper">
+							{{object.webform_fields.svg|safe}}
+						</div>
+					</div>
+
+					{% latest_articles 0 object.last_category as posts %}
+
+					<div class="hide room-list">
+						{% for obj in posts %}
+						<div class="room-url">
+							<span class="counter">poly{{forloop.counter}}</span>
+							<span class="subject">{{object.subject}}</span>
+							<a class="poly{{forloop.counter}}" href="{{obj.url}}" title="{{object.subject}}"></a>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="line"></div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+	$(document).ready(function () {
+		$('.navbar').addClass('dark-menu white-logo');
+		$('.room-list .room-url').each(function () {
+			var counter = $(this).find('.counter').html(),
+			title = $(this).find('.subject').html();
+			$('svg #'+counter).click(function(){
+				$('a.'+counter).trigger('click');
+			});
+			$('svg #'+counter).on("mouseenter", function() {
+      			$(".subject").show();
+      		}).on("mouseleave", function() {
+				  $(".subject").hide();
+			});
+		});
+	});
+</script>
+{% endblock %}

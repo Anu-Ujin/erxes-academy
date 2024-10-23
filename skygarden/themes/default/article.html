@@ -1,0 +1,57 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ object.subject }} %}
+
+{% block content %}
+<div class="article">
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-10 mx-auto mt-lg-2 dark-text">
+						<div aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/">{: Home :}</a></li>
+									{% if object.last_category %}
+									<li class="breadcrumb-item">
+										<a href="{{object.last_category.url}}">{{object.last_category}}</a>
+									</li>
+									{% endif %}
+									<li class="breadcrumb-item active" aria-current="page">{{object.subject}}</li>
+								</ol>
+							</div>
+					{% if object.webform_fields.category %}<h5 class="mb-0 os-f text-center">{{object.webform_fields.category}}</h5>{% endif %}
+					<h1 class="mb-4 text-center">{{object.subject}}</h1>
+					<div class="mt-1 article-content">
+						{{ object.el_content|safe }}
+					</div>
+					{% inc "includes/share.html" %}
+
+					{% if object.allow_comment %}
+						{% comment_count object.id as comment_count %}
+						<h4 class="my-lg-5 my-md-4 my-sm-3">Сэтгэгдэл бичих ({{ comment_count }})</h4>
+						{% include "includes/comment.html" %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</article>
+	<div class="line"></div>
+
+</div>
+{% endblock %}
+{% block js %}
+
+<script>
+	$(document).ready(function () {
+		$("body").addClass('disabled-onepage-scroll');
+		$("header").addClass('disabled-fixed');
+		var headerHeight = '-' + ($('header').height()+32) + 'px';
+    	$('.article').css('margin-top', headerHeight);
+		$('.article').css('padding-top', $('header').height()+32);
+		$('.navbar').addClass('dark-menu').removeClass('white-logo');
+	});
+</script>
+<script>
+	gallery();
+
+</script>
+{% endblock %}

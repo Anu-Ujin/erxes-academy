@@ -1,0 +1,90 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ page.subject }} %}
+
+{% block content %}
+<section class="grey-back active page-22">
+	<div class="container-fluid h-100">
+		<div class="row h-100 align-items-center justify-content-center">
+			<div class="col-xl-10 col-lg-10 col-sm-11 mt-lg-5">
+				<div class="image-wrapper position-relative">
+					<img class="img-fluid" src="{% thumb page.thumb_url_or_default w=1800 %}" alt="{{page.subject}}" />
+					<div class="svg-wrapper">
+						<svg width="2338" height="1216" viewBox="0 0 2338 1216" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path id="poly1" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly1"
+								d="M753 187.625L764.353 180.813L825.661 174.001L830.2 167.184L875.616 160.372L927.842 155.836L970.985 158.107L989.15 164.919L1068.62 162.642L1084.52 164.919L1091.33 174.001V185.354L1109.5 187.625L1123.12 189.895L1129.93 194.436L1130.24 306.245L1121.59 282.919L1095.88 282.989L1086.54 260.351L1068.62 260.556L1011.92 260.283L1007.31 253.466L977.793 251.201L932.375 253.466L873.348 258.007L837.015 260.294L809.767 264.83L809.764 271.642L755.268 278.448L753 217.142V187.625Z" />
+							<path id="poly1" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly1"
+								d="M1563.66 269.341L1507.05 261.611L1486.63 253.425L1373.45 248.628L1332.58 248.634L1305.31 248.969L1294.54 254.634L1223.58 257.716L1191.52 265.118L1192.36 173.875L1223.58 172.332V164.623L1241.22 159.81L1293.98 155.541L1371.18 151H1434.76L1484.71 160.082L1486.98 166.894L1566.46 175.97L1563.66 269.341Z" />
+							<path id="poly2" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly2"
+								d="M755.268 323.85L768.892 321.574L806.51 317.288L807.496 310.221L827.612 305.68L868.303 298.902L939.192 295.48L982.335 294.333H1005.04L1014.12 298.874L1046.22 299.709L1068.05 300.543L1083.65 301.009L1088.91 310.227L1093.01 319.309L1122.4 320.058L1129.93 346.555V305.686L1121.11 283.003L1089.06 282.98L1086.78 260.281L1011.85 260.275L1007.31 253.464L936.916 248.922L868.802 255.734L830.198 260.275L807.493 264.816L805.223 269.357L755.268 276.169V323.85Z" />
+							<path id="poly2" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly2"
+								d="M1191.25 308.237L1225.22 297.445L1296.13 296.684L1320.57 293.442L1439.35 295.214L1487.46 299.756L1504.7 306.678L1562.21 310.571V269.36L1506.01 262.235L1486.36 253.986L1372.91 248.922H1329.76H1304.72L1294.77 254.594L1225.29 255.485L1191.25 265.943V285.256V308.237Z" />
+							<path id="poly3" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly3"
+								d="M755.268 521.408L827.782 512.348L836.81 512.242L873.934 511.377L928.107 510.083H981.348L1011.85 510.055L1023.2 510.475L1068.35 511.446L1084.96 512.195L1090.93 522.362L1118.58 523.656L1129.78 540.204L1129.93 344.296L1122.39 320.007L1110.35 319.631L1093.6 319.319L1083.82 300.881L1016.4 298.883L1005.04 294.341L936.969 295.176L868.802 298.883L837.012 303.424L822.617 306.217L807.811 309.402L805.223 314.783L755.271 323.525L755.268 521.408Z" />
+							<path id="poly3" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly3"
+								d="M1191.25 307.957L1224.8 297.491L1298.17 296.45L1321.6 293.3L1357.62 292.894L1436.85 295.167L1485.52 299.273L1504.85 305.664L1561.64 310.58L1562.38 521.828L1504.6 517.423L1484.17 512.325L1438.6 510.321L1379.44 507.92L1305.08 508.051L1294.02 509.913L1241.52 509.352L1223.21 515.692L1191.25 516.861V307.957Z" />
+							<path id="poly4" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly4"
+								d="M755.268 687.178V521.414L827.93 512.331L927.84 510.06H1007.31L1085.04 512.195L1091.01 522.339L1118.58 523.685L1130.03 540.142L1128.65 699.094L1118.58 689.449H1086.79L1082.25 684.907L1007.32 680.354L925.57 680.371L855.188 682.648L807.501 682.642L755.268 687.178Z" />
+							<path id="poly4" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly4"
+								d="M1191.25 516.901L1223.56 515.834L1241.81 509.095L1294 509.919L1305.48 508.051L1383.03 507.932L1485.72 512.337L1504.48 517.401L1562.51 521.692V689.727L1492.01 687.456L1482.74 678.646L1324.95 676.103L1309.8 675.79L1297.92 676.08L1240.74 676.438L1224.52 682.333L1190.98 683.187L1191.25 516.901Z" />
+							<path id="poly5" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly5"
+								d="M755.268 1052.74V687.178L806.93 682.359L873.344 682.069L927.84 680.36H980.066H1005.04L1013.98 680.951L1082.42 684.317L1086.02 689.329L1118.06 689.505L1128.5 698.951L1127.66 855.199L1127.66 1030.03L1041.37 1034.58L1009.59 1057.29L989.147 1066.36L864.261 1061.83L764.351 1059.56L755.268 1052.74Z" />
+							<path id="poly5" tabindex="0" data-trigger="focus" data-toggle="popover" data-name="poly5"
+								d="M1191.25 1030.04L1252.56 1032.31L1279.81 1057.29L1282.08 1061.83L1379.72 1064.1L1479.63 1061.83L1563.64 1057.29L1563.64 689.443L1491.86 686.883L1483.83 678.362L1299.58 675.234L1239.85 676.131L1225.62 681.983L1191.25 682.631V1030.04Z" />
+						</svg>
+
+					</div>
+				</div>
+				<div class="floors hide">
+					{{page.el_content|safe|removetags:"img"}}
+				</div>
+				<div class="mobile-plan">
+					<table class="table table-striped table-responsive-sm w-100">
+						<thead></thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<span class="line"></span>
+</section>
+{% endblock %}
+{% block js %}
+<script>
+	$('.navbar').addClass('dark-menu').removeClass('white-logo');
+	$("body").addClass('disabled-onepage-scroll');
+
+	var floors = [];
+	$('.floors table tr').each(function () {
+		var floor = $(this).find('td:first-child').html(),
+			title = $(this).find('td:nth-child(2)').html(),
+			text = $(this).find('td:nth-child(3)').html(),
+			url = $(this).find('td:nth-child(4)').html();
+
+		floors.push({
+			floor,
+			title,
+			text,
+			url
+		});
+
+		$('.mobile-plan table tbody').append('<tr><td><h6 class="mb-0">'+title+'</h6><p>'+text+'</p></td><td><a href="'+url+'">Харах <ion-icon class="ml-1" name="arrow-forward-outline"></ion-icon></a></td></tr>');
+	});
+	$('[data-toggle="popover"]').popover({
+		container: '.image-wrapper',
+		animation: true,
+		html: true,
+		trigger: 'focus',
+		placement: 'left',
+		template: '<div class="my-popover" role="tooltip"><div class="popover-body"></div></div>',
+		content: function () {
+			var index = floors.findIndex(floor => floor.floor === $(this).attr('id'));
+			return ('<div><h5>' + floors[index].title + '</h5><p>' + floors[index].text +
+				'</p><a class="btn green-btn pl-0 m-0 border-0" href="' + floors[index].url +
+				'">Дэлгэрэнгүй </a></div>')
+		}
+	});
+
+</script>
+{% endblock %}

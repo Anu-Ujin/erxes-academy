@@ -1,0 +1,99 @@
+{# no extends #}
+{% extends "themes/base.html" %}
+
+{% block head %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P653XP4');</script>
+	<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179964412-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-179964412-3');
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/2828184.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- Meta Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '293522712767602');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=293522712767602&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="{{SITE_STATIC_URL}}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="{{ SITE_STATIC_URL }}css/styles.css" rel="stylesheet">
+
+{% render_asset "css" "main" rel="stylesheet" %}
+<link href="{{ SITE_STATIC_URL }}images/favicon.png" rel="shortcut icon">
+{% endblock %}
+
+{% block body %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P653XP4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+	{% inc "includes/header.html" %}
+</header>
+<div id="content">
+	{% block content %}{% endblock %}
+</div>
+{% endblock %}
+{% block js_include %}
+<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="{{ SITE_STATIC_URL }}vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ SITE_STATIC_URL }}vendor/onepage-scroll/jquery.onepage-scroll.js"></script>
+{% render_asset "js" "main" %}
+
+<script type="text/javascript">
+	$(function () {
+		var isInIFrame = (window.location != window.parent.location) ? true : false;
+		if (isInIFrame == true) {
+			window.top.location.href = self.location.href;
+		}
+		setupSearch('#search', '{: search :} ...');
+		setup();
+		
+		$('.menu .dropdown-menu-right a').not('.parent-menu').click(function(){
+			$('.menu .dropdown-menu-right').toggleClass('show');
+			$('.menu').toggleClass('show');
+		});
+	});
+
+	$('.menu .dropdown-menu-right a.parent-menu').click(function(e){
+		$(this).toggleClass('open');
+		e.stopPropagation();
+		var expanded = $(this).attr('aria-expanded');
+		$(this).attr('aria-expanded', expanded === 'false' ? 'true' : 'false');
+		$(this).next().toggleClass('show');
+	});
+
+</script>
+{% endblock %}

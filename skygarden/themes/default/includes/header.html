@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 px-md-5">
+            <nav class="navbar navbar-expand-lg navbar-light justify-content-between px-xl-3 px-lg-0">
+                <a class="navbar-brand noajax" href="/">
+                    <img src="{{SITE_STATIC_URL}}images/logo.png" height="110" alt="" loading="lazy">
+                </a>
+                <div class="header-right">
+                    <ul class="d-flex align-items-center mb-0">
+                        {% page "contact" as contact %}
+                        <li class="phone-number d-flex align-items-center mr-sm-2 mr-md-3 mr-lg-3 mr-xl-4">
+                            {{contact.get_c_fields.phone.value}}
+                            <ion-icon class="rounded-circle p-2 ml-2" name="call"></ion-icon>
+
+                            <div class="socials">
+                                <div class="icons">
+                                    <ul class="m-0 p-2 rounded-pill">
+                                        <li>
+                                            <ion-icon name="logo-instagram"></ion-icon>
+                                        </li>
+                                        <li>
+                                            <ion-icon name="logo-facebook"></ion-icon>
+                                        </li>
+                                        <li>
+                                            <ion-icon name="logo-twitter"></ion-icon>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="links">
+                                    <ul class="m-0 p-2">
+                                        <li><a target="_blank" href="{{contact.get_c_fields.instagram.value}}">{{contact.get_c_fields.instagram.key}}</a>
+                                        </li>
+                                        <li><a target="_blank" href="{{contact.get_c_fields.facebook.value}}">{{contact.get_c_fields.facebook.key}}</a>
+                                        </li>
+                                        <li><a target="_blank" href="{{contact.get_c_fields.twitter.value}}">{{contact.get_c_fields.twitter.key}}</a>
+                                        </li>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="langbar" class="mr-xl-4 mr-sm-2 mr-md-3 mr-lg-3 ml-lg-2 ">
+                            {% if language == "mn" %}
+                            <a href="javascript:;" rel="en" class="lang">En</a>
+                            {% else %}
+                            <a href="javascript:;" rel="mn" class="lang">Mn</a>
+                            {% endif %}
+                        </li>
+                        <li class="menu ml-lg-2">
+                            <span class="menu-text d-none d-md-inline">{: Menu :}</span>
+                            <button type="button" class="btn menu-btn rounded-circle ml-2" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right rounded-0 border-0 p-0">
+                                <div class="row h-100 align-items-center pl-lg-5 pr-lg-5 mt-lg-4 mt-sm-5">
+                                    {% menu "main_menu" as main_menu %}
+                                    {% if main_menu.items.count %}
+                                    <div class="col text-center">
+                                        <ul class="menu-list">
+                                            <li class="nav-item">
+                                                <a href="/" title="home">{:Home:}</a>
+                                            </li>
+                                            {% for menu in main_menu.items.all %}
+                                            {% if menu.items.count %}
+                                            <li class="nav-item">
+                                                <a class="nav-link text-truncate parent-menu" href="javascript:void()" data-toggle="collapse" data-target="#submenu{{menu.id}}">
+                                                    {{menu.caption}}
+                                                </a> 
+                                                <div class="collapse" id="submenu{{menu.id}}" aria-expanded="true">
+                                                    <ul class="submenu">
+                                                        {% for submenu in menu.items.all %}
+                                                        <li class="nav-item">{% render_menu submenu %}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                               </div>
+                                            </li>
+                                            {% else %}
+                                            <li class="nav-item">{% render_menu menu %}</li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

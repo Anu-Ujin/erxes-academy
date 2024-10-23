@@ -1,0 +1,24 @@
+{% extends BASE_TEMPLATE %}
+{% title Mogulio Sample %}
+
+{% block content %}
+	{% form class="noajax" %}
+        {% if flash.has_error %}
+            {{ flash.get_error }}
+        {% endif %}
+        {% alert form %}
+        <div class="field">
+            {% form_field form.login_with placeholder="Username or Email" autocomplete="off" autofocus="true" %}
+        </div>
+        <div class="field">
+            {% form_field form.password placeholder="Password" autocomplete="off" %}
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">{% trans "Log In" %}</button>
+        <div class="remember-check">{% form_field form.remember_me %}</div>
+        <a href="{% url 'users-register' %}">{: Register :}</a> | 
+        <a class="noajax" href="{% url 'users-social-login' 'twitter' %}">{: Sign in with Twitter :}</a> | 
+        <a class="noajax" href="{% url 'users-social-login' 'facebook' %}">{: Sign in with Facebook :}</a> | 
+        <a href="{% url 'users-forgot-password' %}">{: Forgot password :}</a>
+	{% endform %}
+{% endblock %}

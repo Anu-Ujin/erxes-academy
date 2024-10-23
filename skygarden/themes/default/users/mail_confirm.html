@@ -1,0 +1,11 @@
+{% extends BASE_TEMPLATE %}
+{% title Mail confirmation %}
+
+{% block content %}
+    {% if flash.has_error %}
+        {{ flash.get_error }}
+    {% endif %}
+    {% if flash.has_notice %}
+        {{ flash.get_notice }}
+    {% endif %}
+{% endblock %}

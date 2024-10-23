@@ -1,0 +1,139 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ object.subject }} %}
+
+{% block content %}
+
+<div class="container-fluid h-100 article-room-layout responsive-h-100">
+	<div class="row align-items-center">
+		<div class="col-lg-8 col-md-10">
+			<div aria-label="breadcrumb">
+				<ol class="breadcrumb-abs">
+					<li class="breadcrumb-item"><a href="/">{: Home :}</a></li>
+					{% for cat in object.categories.all %}
+					{% if cat.parent.code == 'floor_plan' %}
+					<li class="breadcrumb-item">
+						<a href="/{{cat.code}}-plan">{{cat.caption}}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+					<li class="breadcrumb-item active" aria-current="page">{{object.subject}}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	{% if object.webform_fields.type == 'Duplex' %}
+	<div class="hide table">
+		{{object.el_content|safe}}
+		<div class="interior">
+			<img class="m-auto img-fluid" src="{{ SITE_STATIC_URL }}images/gallery-icon.gif" alt="Interior" />
+			<span>{: Interior :}</span>
+		</div>
+	</div>
+	<div class="slider h-100 w-100">
+	</div>
+
+	<div class="fancy-gallery hide"></div>
+	
+	{% else %}
+	<div class="row align-items-center justify-content-center h-100">
+		<div class="col-sm-5 col-md-6 col-xl-5 col-lg-5 h-100 pt-lg-5">
+			<div class="d-flex h-100 align-items-center">
+				<div class="w-80 mx-auto room-layout-img">
+					<img class="img-fluid" src="{% thumb object.webform_fields.image w=800 %}"
+						alt="{{object.subject}}" />
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-7 col-md-6 col-xl-4 col-lg-5 text-body pt-xl-5 h-100 d-flex">
+			<div class="w-100 scroll-container overflow-scroll mt-sm-auto pb-md-3 pb-sm-4 d-flex align-items-center">
+				<div class="container h-100 d-flex align-items-center">
+					<div class="pl-lg-5 my-auto">
+						<h5 class="os-f mb-0">{{object.last_category}}</h5>
+						<h1 class="mongoose mb-md-3">{{object.subject}}</h1>
+						<div class="room-layout-content">
+							{{object.el_content|safe|removetags:"img figure"}}
+							<div class="interior">
+								<img class="m-auto img-fluid" src="{{ SITE_STATIC_URL }}images/gallery-icon.gif"
+									alt="Interior" />
+								<span>{: Interior :}</span>
+							</div>
+							<div class="fancy-gallery hide"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+<div class="line d-sm"></div>
+
+{% endblock %}
+{% block js %}
+
+<script>
+	$('.navbar').addClass('dark-menu').removeClass('white-logo');
+	
+	$('.scroll-container').height($('body').height() - $('header').height() - 32);
+
+	var floor = [];
+	$('.table tr').each(function (i) {
+		var title = $(this).find('td:first-child').html(),
+			img = $(this).find('td:nth-child(2)').html(),
+			text = $(this).find('td:nth-child(3)').html();
+		floor.push({
+			title,
+			img,
+			text
+		});
+
+		$('.slider').append(
+			'<div class="h-100 w-100 position-relative"><div class="row align-items-center justify-content-center h-100"><div class="col-sm-5 col-md-6 col-xl-5 col-lg-5 h-100 pt-lg-5"><div class="d-flex h-100 align-items-center"><div class="w-80 mx-auto room-layout-img">' +
+			img + '<span class="level">Level '+ (i+1) +'</span></div></div></div><div class="col-sm-7 col-md-6 col-xl-4 col-lg-5 text-body pt-xl-5 h-100 d-flex"><div class="w-100 scroll-container overflow-scroll my-sm-auto pb-md-3 pb-sm-4 d-flex align-items-center"><div class="container h-100 d-flex align-items-center"><div class="pl-lg-5 my-auto"><h5 class="os-f mb-3">{{object.subject}}</h5><h3 class="mongoose mb-md-3">'+title+'</h3><div class="room-layout-content">' +
+			text + '<div class="interior"><img class="m-auto img-fluid" src="{{ SITE_STATIC_URL }}images/folder-icon.png" alt="Interior" /><span>{: Interior :}</span></div></div></div></div></div></div></div></div>')
+	});
+
+	if ($('.content_galleria').height() > 0) {
+		$('.interior').addClass('show');
+	};
+
+	$('.content_galleria a').each(function () {
+		var url = $(this).attr('href');
+		$('.fancy-gallery').append('<a class="fancy-thumbs" data-fancybox-group="thumb{{object.id}}" href="' +
+			url +
+			'"><img class="img-fluid" src="' + url + '" alt="" /></a>')
+	});
+
+	$('.interior').click(function () {
+		$('.fancy-thumbs').fancybox({
+			prevEffect: 'none',
+			nextEffect: 'none',
+
+			closeBtn: true,
+			arrows: true,
+			nextClick: false,
+
+			openEffect: 'fade-in',
+			closeEffect: 'fade-out',
+
+			helpers: {
+				title: {
+					type: 'outside'
+				},
+				overlay: {
+					css: {
+						'background': 'rgba(169,143,113,0.85)'
+					}
+				},
+				thumbs: {
+					width: 50,
+					height: 50
+				}
+			}
+		}).trigger('click')
+	})
+
+	slider('slider',5000);
+
+</script>
+{% endblock %}

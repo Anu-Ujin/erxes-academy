@@ -1,0 +1,252 @@
+# 
+msgid ""
+msgstr ""
+
+msgid "search"
+msgstr "search"
+
+msgid "by author"
+msgstr "by author"
+
+msgid "categories"
+msgstr "categories"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "this is test"
+msgstr "this is test"
+
+msgid "home_page"
+msgstr "Нүүр хуудас"
+
+msgid "title"
+msgstr "Sky Garden Residence"
+
+msgid "Comments"
+msgstr ""
+
+msgid "Reply to"
+msgstr ""
+
+msgid "Author"
+msgstr "Нэр"
+
+msgid "Website"
+msgstr ""
+
+msgid "Email"
+msgstr "Цахим шуудан"
+
+msgid "Comment"
+msgstr ""
+
+msgid "Home"
+msgstr "Нүүр"
+
+msgid "Latest Articles"
+msgstr "Latest Articles"
+
+msgid "Latest Articles ... "
+msgstr "Latest Articles ... "
+
+msgid "Most Read Articles"
+msgstr "Most Read Articles"
+
+msgid "Most Read Articles ... "
+msgstr "Most Read Articles ... "
+
+msgid "Most Commented Articles"
+msgstr "Most Commented Articles"
+
+msgid "Most Commented Articles ... "
+msgstr "Most Commented Articles ... "
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Archive ... "
+msgstr "Archive ... "
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text ... "
+msgstr "Text ... "
+
+msgid "Facebook likebox"
+msgstr "Facebook likebox"
+
+msgid "Facebook like box ... "
+msgstr "Facebook like box ... "
+
+msgid "Web Form"
+msgstr "Web Form"
+
+msgid "Web Form ... "
+msgstr "Web Form ... "
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Gallery ... "
+msgstr "Gallery ... "
+
+msgid "code"
+msgstr "code"
+
+msgid "banner count"
+msgstr "banner count"
+
+msgid "heigth"
+msgstr "heigth"
+
+msgid "width"
+msgstr "width"
+
+msgid "price"
+msgstr "price"
+
+msgid "link"
+msgstr "link"
+
+msgid "file path"
+msgstr "file path"
+
+msgid "begin date"
+msgstr "begin date"
+
+msgid "end date"
+msgstr "end date"
+
+msgid "show count"
+msgstr "show count"
+
+msgid "click count"
+msgstr "click count"
+
+msgid "position"
+msgstr "position"
+
+msgid "name"
+msgstr "name"
+
+msgid "file"
+msgstr "file"
+
+msgid "default banner"
+msgstr "default banner"
+
+msgid "is default"
+msgstr "is default"
+
+msgid "Untitled"
+msgstr "Untitled"
+
+msgid "breaking-news"
+msgstr "breaking-news"
+
+msgid "sp-news"
+msgstr "sp-news"
+
+msgid "more-topnews"
+msgstr "more-topnews"
+
+msgid "bloomberg-sp-video"
+msgstr "bloomberg-sp-video"
+
+msgid "editors-video"
+msgstr "editors-video"
+
+msgid "Opinion"
+msgstr "Opinion"
+
+msgid "market-data"
+msgstr "market-data"
+
+msgid "Politic"
+msgstr "Politic"
+
+msgid "More"
+msgstr "Дэлгэрэнгүй"
+
+msgid "Recent added"
+msgstr "Recent added"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Forgot password"
+msgstr "Forgot password"
+
+msgid "Password sent to your mail. Please check spam."
+msgstr "Password sent to your mail. Please check spam."
+
+msgid "Sign in with Twitter"
+msgstr "Sign in with Twitter"
+
+msgid "Sign in with Facebook"
+msgstr "Sign in with Facebook"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "read count"
+msgstr "read count"
+
+msgid "Read more"
+msgstr "Цааш унших"
+
+msgid "Discover more"
+msgstr "Дэлгэрэнгүй"
+
+msgid "Play intro"
+msgstr "Видео үзэх"
+
+msgid "Menu"
+msgstr "Цэс"
+
+msgid "Kids first Concept"
+msgstr "Kids first Concept"
+
+msgid "share"
+msgstr "share"
+
+msgid "twit"
+msgstr "twit"
+
+msgid "ins"
+msgstr "ins"
+
+msgid "instagram"
+msgstr "instagram"
+
+msgid "See Our Room Plans"
+msgstr "Бусад зохион байгуулалт"
+
+msgid "Insight news"
+msgstr "Мэдээ мэдээлэл "
+
+msgid "Material concept"
+msgstr "Material concept"
+
+msgid "Floor information"
+msgstr "Давхрын мэдээлэл"
+
+msgid "Types of apartment"
+msgstr "Орон сууцны төрөл"
+
+msgid "Interior"
+msgstr "Интериор"
+
+msgid "Meeting form"
+msgstr "Мэдээлэл авах"
+
+msgid "Play video"
+msgstr "Видео үзэх"
+
+msgid "Address"
+msgstr "Хаяг"
+
+msgid "Virtual tour"
+msgstr "Виртуал аялал"

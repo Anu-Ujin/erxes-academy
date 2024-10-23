@@ -1,0 +1,98 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ article.subject }} %}
+<div id="comment_list">
+    {% block comment_list %}
+
+
+    <div class='new_comment'>
+        <ul class="comment-list mb-3 p-0 list-unstyled">
+            {% paginator object_list 15 %}
+            {% for comment in object_list %}
+            <li class="mb-lg-4 position-relative">
+                <div class="comment-body d-flex">
+                    <div class="avatar-wrapper">
+                        <img src="{{ SITE_STATIC_URL }}images/user.png">
+                    </div>
+                    <div id="comment-meta">
+                        <div class="comment-metadata">
+                            <div class="author-name m-0 os-f">{{ comment.name }}
+                                <span class='time'>{{ comment.created_date|date:"Y-m-d H:i" }}</span></div>
+                        </div>
+                        <div class='comment-content comment-reply-wrapper'>
+                            <p class="m-0">{{ comment.content|safe }}</p>
+                            <ul class="d-flex list-unstyled">
+                                <li class="mr-lg-3">
+                                    <a class="comment_vote noajax like" href="javascript:void(0);"
+                                        data-art="{{ comment.article_id }}" data-com="{{ comment.id }}">
+                                        <ion-icon name="thumbs-up-outline"></ion-icon>
+                                        <span class="like-count">{{ comment.like }}</span>
+                                    </a>
+                                </li>
+                                <li class="mr-lg-3">
+                                    <a class="comment_vote noajax dislike" href="javascript:void(0);"
+                                        data-art="{{ comment.article_id }}" data-com="{{ comment.id }}">
+                                        <ion-icon name="thumbs-down-outline"></ion-icon>
+                                        <span class="dislike-count">{{ comment.dislike }}</span>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                            <div class="reply-wrapper">
+                                    <a id="idOfButton" class='comment_vote reply' href="javascript:void(0);"
+                                    data-id="{{ comment.id }}" data-user="{{ request.user.id }}">
+                                    <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                                    Хариулах</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if comment.replies.count %}
+                <ul class="list-unstyled ml-lg-5 my-lg-3">
+                    {% for re in comment.replies.all %}
+                    <li class="mb-lg-3 position-relative">
+                        <div class='comment-body d-flex'>
+                                <div class="avatar-wrapper">
+                                    <img src="{{ SITE_STATIC_URL }}images/user.png">
+                                </div>
+                            <div id="comment-meta">
+                                <div class="comment-author vcard">
+                                    <div class="comment-metadata">
+                                        <div class="author-name m-0 os-f">{{ re.name }}
+                                            <span class='time'>{{ re.created_date|date:"Y-m-d H:i" }}</span></div>
+                                    </div>
+                                    <div class='comment-content comment-reply-wrapper'>
+                                        <p class="m-0">{{ re.content }}</p>
+                                    <ul class="d-flex list-unstyled">
+                                        <li class="mr-lg-3">
+                                            <a class="comment_vote noajax like" href="javascript:void(0);"
+                                                data-art="{{ re.article_id }}" data-com="{{ re.id }}">
+                                                <ion-icon name="thumbs-up-outline"></ion-icon>
+                                                <span class="like-count">{{ re.like }}</span>
+                                            </a>
+                                        </li>
+                                        <li class="mr-lg-3">
+                                            <a class="comment_vote noajax dislike" href="javascript:void(0);"
+                                                data-art="{{ re.article_id }}" data-com="{{ re.id }}">
+                                                <ion-icon name="thumbs-down-outline"></ion-icon>
+                                                <span class="dislike-count">{{ re.dislike }}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+            </li>
+            {% endfor %}
+            {% paginate %}
+        </ol>
+    </div>
+
+    {% endblock %}
+</div>

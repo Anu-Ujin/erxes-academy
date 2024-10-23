@@ -1,0 +1,20 @@
+{% extends BASE_TEMPLATE %}
+{% title Register %}
+
+{% block content %}
+    <a href="{% url 'users-login' %}" class="noajax">{% trans "Login" %}</a>
+    {% alert form %}
+
+    {% form %}
+    <div class="field">
+        {% form_field form.username hide_label="true" placeholder="Username" autocomplete="off" autofocus="true" %}
+    </div>
+    <div class="field">
+        {% form_field form.email hide_label="true" placeholder="Email Address" autocomplete="off" %}
+    </div>
+
+    <div class="control-group">
+        <button type="submit" class="btn btn-primary">{% trans "Submit" %}</button>
+    </div>
+    {% endform %}
+{% endblock %}

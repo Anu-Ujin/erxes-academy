@@ -1,0 +1,79 @@
+{% extends BASE_TEMPLATE %}
+{% title {{ object.caption }} %}
+
+{% block content %}
+<div class="article h-100 green-white-back mb-md-5">
+	<div class="container-fluid h-100">
+		{% latest_articles 1 "featured_blog" as featured_posts %}
+		{% for obj in featured_posts %}
+		<div class="row h-100 position-relative justify-content-sm-center">
+			<div class="col-sm-11 col-md-6 col-lg-5 col-xl-4 h-100 align-items-center d-flex">
+				<div class="text-light w-80 ">
+					<h5 class="mb-2 os-f">{: Insight news :}</h5>
+					<h1 class="mb-lg-5 mb-md-3">{{obj.subject}}</h1>
+					<div class="mb-lg-5">
+						{{obj.el_content|safe|striptags|truncatewords:"24"}}
+					</div>
+					<div class="d-flex mt-lg-5 mt-md-3 my-sm-4 my-3 hovered-btn">
+						<a href="{{obj.url}}"
+							class="btn green-btn pl-lg-4 py-lg-2 bg-white border-0 d-flex mt-lg-5 mt-md-3 align-items-center">{: Read more :} <ion-icon name="arrow-forward-outline"></ion-icon></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-10 col-md-5 col-lg-5 col-xl-5 h-100 d-flex align-items-center">
+				<img class="img-fluid" src="{% thumb obj.thumb_url_or_default w=860 h=460 %}" alt="{{obj.subject}}" />
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="line"></div>
+</div>
+<div class="blog-list">
+	<div class="container-fluid">
+		<div class="row justify-content-sm-center">
+			<div class="col-lg-9 col-md-11 col-sm-11">
+				<div class="row mx-lg-n4">
+					{% latest_articles 0 object as posts %}
+					{% paginator posts 9 %}
+					{% for obj in posts %}
+					<div class="col-sm-6 col-md-6 col-lg-4 px-xl-4 px-lg-2 px-md-1">
+						{% tags_of_object obj as tags %}
+						{% for tag in tags %}
+							<div class="tag rounded-pill">
+								<div class="chip">
+									<a href="{{ cat.url }}?tag={{ tag }}">
+										<span></span> {{ tag }} 
+									</a>
+								</div>
+							</div> 
+						{% endfor %}
+						<div class="blog-item position-relative mb-lg-5">
+							<div class="blog-img position-relative">
+								<img class="img-fluid" src="{% thumb obj.thumb_url_or_default w=600 h=380 %}" alt="{{obj.subject}}" />
+							</div>
+							<h6 class="my-3"><a href="{{obj.url}}" class="stretched-link">{{obj.subject}}</a></h6>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				{% paginate %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+	$(document).ready(function () {
+		checkPosition();
+		$('.navbar').addClass('dark-menu white-logo');
+		$("body").addClass('disabled-onepage-scroll');
+		$("header").addClass('disabled-fixed');
+		var headerHeight = '-' + ($('header').height() + 32) + 'px';
+		$('.article').css('margin-top', headerHeight);
+		$('.article').css('padding-top', $('header').height() + 32);
+	});
+
+</script>
+{% endblock %}

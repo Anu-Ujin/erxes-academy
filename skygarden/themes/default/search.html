@@ -1,0 +1,27 @@
+{% extends BASE_TEMPLATE %}
+{% title Search: {{ query }} %}
+
+{% block content %}
+    <section>
+        <h2>Search: {{ query }}</h2>
+        {% paginator articles 10 %}
+        <p>
+            {% for obj in articles %}
+                <li>
+                    <a href="{{ obj.url }}">{{ obj.subject }}</a>
+                </li>
+            {% endfor %}
+        </p>
+        <div class="clear"></div>
+        {% paginate %}
+
+        Pages:
+        <p>
+            {% for obj in pages %}
+                <li>
+                    <a href="{{ obj.url }}">{{ obj.subject }}</a>
+                </li>
+            {% endfor %}
+        </p>
+    </section>
+{% endblock %}

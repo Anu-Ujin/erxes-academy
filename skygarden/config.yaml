@@ -1,0 +1,63 @@
+add_roles: []
+allowed_countries: []
+allowed_ips: []
+assets:
+  default:
+    css:
+      main: [css/reset.css, css/gallery_styles.css, fonts/gerege/gerege-codes.css,
+        fonts/gerege/gerege.css, fonts/pt-serif/style.css, vendor/onepage-scroll/onepage-scroll.css,
+        vendor/slick/slick.css, vendor/slick/slick-theme.css, vendor/fancybox/jquery.fancybox.css,
+        vendor/fancybox/helpers/jquery.fancybox-thumbs.css, css/main.min.css]
+    js:
+      main: [js/scripts.js, vendor/slick/slick.min.js, vendor/fancybox/jquery.fancybox.js,
+        vendor/fancybox/helpers/jquery.fancybox-media.js, vendor/fancybox/helpers/jquery.fancybox-thumbs.js,
+        js/custom.js]
+blocks: {}
+cacheable: false
+can_signup: false
+closed: false
+comment: disqus
+connectors:
+  custom: {}
+  disqus: ''
+  fb_comment: {show_count: 10, width: 500}
+  google:
+    analytics_active_site: ''
+    analytics_credentials: '{"_module": "oauth2client.client", "token_expiry": "2021-02-04T07:48:35Z",
+      "access_token": "ya29.a0AfH6SMBmUH1OVbgAJCINlEpIQVCh_OvoiLOMD90cO3L3Iy5RDtIMg901XX9oZRVb6JX4zBGC9BIfOfKsC11JJacmVRNVJzoFqHOpWY-jOg8Oprr-d7khFqdv2QbE0ljtFiAe111MhJIu-4MZcm65z35j8T080tHQbAxBdGj0BMI",
+      "token_uri": "https://accounts.google.com/o/oauth2/token", "invalid": false,
+      "token_response": {"access_token": "ya29.a0AfH6SMBmUH1OVbgAJCINlEpIQVCh_OvoiLOMD90cO3L3Iy5RDtIMg901XX9oZRVb6JX4zBGC9BIfOfKsC11JJacmVRNVJzoFqHOpWY-jOg8Oprr-d7khFqdv2QbE0ljtFiAe111MhJIu-4MZcm65z35j8T080tHQbAxBdGj0BMI",
+      "scope": "https://www.googleapis.com/auth/analytics.readonly", "token_type":
+      "Bearer", "expires_in": 3599, "refresh_token": "1//0eE8DHXDY8MhaCgYIARAAGA4SNwF-L9IrYvRj7W9GLSbK3R4_ZWMXX9lPE52FYHKc16yKwzUzwKef7ZJdqphPYd2eTXIM_BWeAtI"},
+      "client_id": "652925172793.apps.googleusercontent.com", "id_token": null, "client_secret":
+      "O1o5YkJEqrlbRG5xGQeYyWIQ", "revoke_uri": "https://accounts.google.com/o/oauth2/revoke",
+      "_class": "OAuth2Credentials", "refresh_token": "1//0eE8DHXDY8MhaCgYIARAAGA4SNwF-L9IrYvRj7W9GLSbK3R4_ZWMXX9lPE52FYHKc16yKwzUzwKef7ZJdqphPYd2eTXIM_BWeAtI",
+      "user_agent": null}'
+    analytics_profile_id: '236907281'
+    analytics_property_id: UA-179964412-3
+    analytics_sites: []
+    verification: <meta name="google-site-verification" content="SfN1hJ-LBSOUhBgFaJJnTGwWXpUJhYqGDl1Muyld4kM"
+      />
+contributor_can_publish: false
+custom_field_templates: ''
+cv_admin: ''
+default_language: mn
+direct_link_language: false
+file_size_limit: 5120
+full_search: false
+languages: [en, mn]
+meta_description: Sky Garden Residence нь Богд уулын бэлд, Их Тэнгэрийн аманд, Туул
+  голын хөвөө, Үндэсний цэцэрлэгт хүрээлэнгийн баруун талд үзэсгэлэнт байгаль, цэвэр
+  агаар бүхий онцлогтой байршилд “ИРЭЭДҮЙГЭЭ ХАЙРЛАЯ” уриатай хүүхдийг дээдэлж, оршин
+  суугчдаа эрхэмлэсэн орчин, төлөвлөлт бүхий 350 айлын хотхон юм.
+meta_keywords: Skygarden, sky garden, Sky Garden Residence, Teso
+name: Sky Garden
+offline: false
+permalink: slug
+plugins: [comments]
+rss: /rss/
+rss_content: half
+search_index_language: ''
+sitemap_language: ''
+subscribe_from_mail: newmediagroupit@gmail.com
+theme: default

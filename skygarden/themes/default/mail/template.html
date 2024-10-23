@@ -1,0 +1,37 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<style>
+    .main-content table {
+        border: 1px solid #eee;
+        width: 100%;
+    }
+
+    .main-content table td {
+        border: 1px solid #eee;
+        margin: 0;
+        padding: 5px 10px;
+    }
+
+</style>
+<div id="container"
+    style="-webkit-font-smoothing: antialiased;font-family: arial;max-width: 760px;margin: 0 auto;background-color: #fbfbfb;font-size: 13px;color: #444;overflow: hidden;text-align: center;">
+
+    <!-- Begin Header -->
+    <h3>{{ subject }}.{{ content.subject }}</h3>
+    <!-- End Header -->
+
+    <!-- Begin Main Container -->
+    <div id="main-container"
+        style="width: auto;margin: 0 50px 50px 50px;border-radius: 5px;position: relative;overflow: hidden;text-align: left;">
+        <div class="main-content">
+            <img src="http://skygarden.mn/media/skygarden/content/banner/.-5301672498124959950_1920_x_1080.jpg"
+                alt="skygarden.mn" style="width: 100%" />
+            {{ content|safe }}
+        </div>
+    </div>
+    <!-- End Main Container -->
+
+    <!-- Begin Footer -->
+</div>

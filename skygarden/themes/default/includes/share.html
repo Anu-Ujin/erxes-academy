@@ -1,0 +1,21 @@
+<div class="share-wrapper mt-5 mb-3">
+    <ul class="list-unstyled d-flex align-items-center">
+        <li class="fb">
+                <a onclick="window.open('http://www.facebook.com/share.php?u=http://skygarden.mn{{ object.short_url }}','sharer', 'toolbar=0,status=0,width=620,height=350');"
+				href="javascript: void(0)" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon> {: share :}
+		    	</a>
+        </li>
+        <li class="twitter">
+                <a onclick="window.open('https://twitter.com/share?url=https://skygarden.mn{{ object.short_url }}&text={{ object.subject|cut:"&" }}&via=https://skygarden.mn','name','width=620,height=350')"
+				href="javascript: void(0)" target="_blank">
+                    <ion-icon name="logo-twitter"></ion-icon> {: twit :}
+		    	</a>
+        </li>
+        <li class="instagram">
+                <a onclick="window.open('https://www.instagram.com/share.php?u=http://skygarden.mn{{ object.short_url }}','sharer', 'toolbar=0,status=0,width=620,height=350');" href="javascript: void(0)" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon> {: share :}
+		    	</a>
+        </li>
+    </ul>
+</div>

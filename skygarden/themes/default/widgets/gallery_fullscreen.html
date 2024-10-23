@@ -1,0 +1,70 @@
+{% gallery_content kwargs.content as content %}
+
+<div id="gallery-fullscreen-container">
+	<div id="slideshow-teaser">
+		<div id="teaser-slider-container">
+			<div class="show-popup">+</div>
+			<div class="teaser-slider">
+				{% for item in content %}
+					<img src="{{ item.path }}"></img>
+				{% endfor %}
+			</div>
+
+			<div class="teaser-prev"><</div>
+			<div class="teaser-next">></div>
+		</div>
+
+		<div id="teaser-description">
+			<div id="teaser-nav-container">
+				<button id="slide-pager_prev"><</button>
+				<ul id="teaser-nav">
+					{% for item in content %}
+						<li><a href="#"><img src="{{ item.path }}"></img></a></li>
+					{% endfor %}
+				</ul>
+				<button id="slide-pager_next">></button>
+			</div>
+
+			<div id="teas-description">
+				{% for item in content %}
+					<summary>{{ item.desc|safe }}</summary>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Pop Up Version -->
+<div id="fullscreen-popup" class="container">
+	<div id="left-container">
+		<!-- Image Container Section -->
+		<div id="image-container">
+			<div id="slideshow">
+				{% for item in content %}
+					<img src="{{ item.path }}"></img>
+				{% endfor %}
+			</div>
+		</div>
+		<div id="nav-buttons">
+			<div class="prev">өмнөх</div>
+			<div class="count"></div>
+			<div class="next">дараах</div>
+			<div class="close"> X </div>
+		</div>
+		<div id="description">
+			{% for item in content %}
+				<summary>{{ item.desc|safe }}</summary>
+			{% endfor %}
+		</div>
+	</div>
+	<div id="middle-container">
+		<div id="nav">
+			<div class="scroller">
+				{% for item in content %}
+					<li><a href="#"><img src="{{ item.path }}"></img></a></li>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

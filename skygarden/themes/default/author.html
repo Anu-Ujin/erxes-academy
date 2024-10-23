@@ -1,0 +1,21 @@
+{% extends BASE_TEMPLATE %}
+{% title Author: {{ object.get_fullname }} %}
+
+{% block content %}
+	<section>
+		<h2>Author: {{ object.get_fullname }}</h2>
+		<ul class="article-list">
+            {% paginator articles 10 %}
+			{% for obj in articles %}
+                <li>
+                    <a href="{{ obj.url }}">
+                        <img alt="{{ obj.subject }}" src="{% thumb obj.thumb_url_or_default w=200 h=200 %}"/>
+                        {{ obj.subject }}
+                    </a>
+			    </li>
+			{% endfor %}
+            {% paginate %}
+		</ul>
+		<div class="clear"></div>
+	</section>
+{% endblock %}

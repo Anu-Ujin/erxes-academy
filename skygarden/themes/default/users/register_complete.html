@@ -1,0 +1,9 @@
+{% extends BASE_TEMPLATE %}
+{% title Register complete %}
+
+{% block content %}
+    <div class="tab">
+        <a href="{% url 'users-login' %}" class="noajax left">{% trans "Login" %}</a>
+    </div>
+    {: Password sent to your mail. Please check spam. :}
+{% endblock %}

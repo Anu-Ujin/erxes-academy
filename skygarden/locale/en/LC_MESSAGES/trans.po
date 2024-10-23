@@ -1,0 +1,252 @@
+# 
+msgid ""
+msgstr ""
+
+msgid "search"
+msgstr "search"
+
+msgid "by author"
+msgstr "by author"
+
+msgid "categories"
+msgstr "categories"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "this is test"
+msgstr ""
+
+msgid "home_page"
+msgstr "Home page"
+
+msgid "title"
+msgstr "Mogulio sample"
+
+msgid "Comments"
+msgstr ""
+
+msgid "Reply to"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Latest Articles"
+msgstr "Latest Articles"
+
+msgid "Latest Articles ... "
+msgstr "Latest Articles ... "
+
+msgid "Most Read Articles"
+msgstr "Most Read Articles"
+
+msgid "Most Read Articles ... "
+msgstr "Most Read Articles ... "
+
+msgid "Most Commented Articles"
+msgstr "Most Commented Articles"
+
+msgid "Most Commented Articles ... "
+msgstr "Most Commented Articles ... "
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Archive ... "
+msgstr "Archive ... "
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text ... "
+msgstr "Text ... "
+
+msgid "Facebook likebox"
+msgstr "Facebook likebox"
+
+msgid "Facebook like box ... "
+msgstr "Facebook like box ... "
+
+msgid "Web Form"
+msgstr "Web Form"
+
+msgid "Web Form ... "
+msgstr "Web Form ... "
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Gallery ... "
+msgstr "Gallery ... "
+
+msgid "code"
+msgstr "code"
+
+msgid "banner count"
+msgstr "banner count"
+
+msgid "heigth"
+msgstr "heigth"
+
+msgid "width"
+msgstr "width"
+
+msgid "price"
+msgstr "price"
+
+msgid "link"
+msgstr "link"
+
+msgid "file path"
+msgstr ""
+
+msgid "begin date"
+msgstr "begin date"
+
+msgid "end date"
+msgstr "end date"
+
+msgid "show count"
+msgstr "show count"
+
+msgid "click count"
+msgstr "click count"
+
+msgid "name"
+msgstr "name"
+
+msgid "position"
+msgstr "position"
+
+msgid "file"
+msgstr "file"
+
+msgid "default banner"
+msgstr "default banner"
+
+msgid "is default"
+msgstr "is default"
+
+msgid "Untitled"
+msgstr ""
+
+msgid "breaking-news"
+msgstr ""
+
+msgid "sp-news"
+msgstr ""
+
+msgid "more-topnews"
+msgstr ""
+
+msgid "bloomberg-sp-video"
+msgstr ""
+
+msgid "editors-video"
+msgstr ""
+
+msgid "Opinion"
+msgstr ""
+
+msgid "market-data"
+msgstr ""
+
+msgid "Politic"
+msgstr ""
+
+msgid "More"
+msgstr ""
+
+msgid "Recent added"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Forgot password"
+msgstr ""
+
+msgid "Password sent to your mail. Please check spam."
+msgstr ""
+
+msgid "Sign in with Twitter"
+msgstr ""
+
+msgid "Sign in with Facebook"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "read count"
+msgstr "read count"
+
+msgid "Read more"
+msgstr ""
+
+msgid "Discover more"
+msgstr "Discover more"
+
+msgid "Play intro"
+msgstr "Play intro"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Kids first Concept"
+msgstr ""
+
+msgid "share"
+msgstr ""
+
+msgid "twit"
+msgstr ""
+
+msgid "ins"
+msgstr ""
+
+msgid "instagram"
+msgstr ""
+
+msgid "See Our Room Plans"
+msgstr ""
+
+msgid "Insight news"
+msgstr ""
+
+msgid "Material concept"
+msgstr ""
+
+msgid "Floor information"
+msgstr ""
+
+msgid "Types of apartment"
+msgstr ""
+
+msgid "Interior"
+msgstr ""
+
+msgid "Meeting form"
+msgstr ""
+
+msgid "Play video"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Virtual tour"
+msgstr ""

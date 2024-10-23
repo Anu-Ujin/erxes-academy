@@ -1,0 +1,11 @@
+{% extends BASE_TEMPLATE %}
+{% title Edit profile %}
+
+{% block content %}
+    {% render_flash %}
+	{% form enctype="multipart/form-data"  class="form-horizontal" %}
+        {% alert form %}
+        {{ form.as_p }}
+        {% submit text="Save" cancel_url="users-profile-redirect" %}
+	{% endform %}
+{% endblock %}
